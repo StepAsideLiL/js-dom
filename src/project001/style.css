@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg {
+    color: #000;
+    text-shadow: -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff;
+    padding: 10px 0;
+}
+
+.change-btn {
+    padding: 14px 26px;
+    font-size: 25px;
+    color: #99FEFF;
+    background-color: #B983FF;
+    border: 2px solid #B983FF;
+    cursor: pointer;
+}
+
+.change-btn:hover {
+    color: #94B3FD;
+    border: 2px solid #94DAFF;
+}
