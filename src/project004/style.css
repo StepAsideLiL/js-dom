@@ -1,0 +1,116 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg {
+    color: #000;
+    text-shadow: -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff;
+    padding: 10px 0;
+}
+
+.input-box {
+    color: #000000;
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.input-copy {
+    font-size: 12px;
+    color: #99FEFF;
+    background-color: #B983FF;
+    border: 2px solid #B983FF;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.input-copy:hover {
+    color: #94B3FD;
+    border: 2px solid #94DAFF;
+}
+
+.change-btn {
+    padding: 14px 26px;
+    font-size: 25px;
+    color: #99FEFF;
+    background-color: #B983FF;
+    border: 2px solid #B983FF;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.change-btn:hover {
+    color: #94B3FD;
+    border: 2px solid #94DAFF;
+}
+
+.toast-message {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    color: #000000;
+    background-color: rgb(44, 235, 44);
+    padding: 10px 20px;
+    border: 1px solid rgb(16, 85, 16);
+    border-radius: 10px;
+    z-index: 999;
+    cursor: pointer;
+
+    box-shadow: 0 4px 8px 0 rgb(5, 24, 5, 0.2);
+
+    font-size: 11px;
+}
+
+.toast-message-slide-in {
+    animation: toast-animation-in 0.5s ease-in;
+}
+
+.toast-message-slide-out {
+    animation: toast-animation-out 0.5s ease-in;
+}
+
+@keyframes toast-animation-in {
+    from {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toast-animation-out {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+}
