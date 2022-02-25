@@ -1,20 +1,25 @@
 /**
  * Project requirement
- * - Change the background color by generating random color
+ * - Change the background rgba color by generating random color
+ * 
+ * Solution
+ * - JavaScript Math.random() gives float number
+ * - 1 to 10 random number => Math.floor( Math.random() * 10 ) + 1
+ * - min to max random number => Math.floor( Math.random() * ( (max + 1) - min ) ) + min
  */
 
 // Select the elements.
-const body = document.getElementsByTagName('body')[0];
-const btn = document.querySelector('.change-btn');
+const body = document.getElementsByTagName( 'body' )[0];
+const btn = document.querySelector( '.change-btn' );
 
 // add event listener to the button element.
 btn.addEventListener( 'click', function( e ) {
     e.preventDefault();
-    body.style.backgroundColor = changeBackgroundColor();
+    body.style.backgroundColor = generateRGBABackgroundColor();
 } );
 
 // function to change background color randomly.
-function changeBackgroundColor() {
+function generateRGBABackgroundColor() {
     // var backgroungColor = Math.floor(Math.random()*16777215).toString(16);
     // console.log('#'+backgroungColor);
     // return '#'+backgroungColor;
