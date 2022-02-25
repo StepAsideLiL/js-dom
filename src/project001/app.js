@@ -15,11 +15,11 @@ const btn = document.querySelector( '.change-btn' );
 // add event listener to the button element.
 btn.addEventListener( 'click', function( e ) {
     e.preventDefault();
-    body.style.backgroundColor = generateRGBABackgroundColor();
+    body.style.backgroundColor = generateRgbaBackgroundColor();
 } );
 
 // function to change background color randomly.
-function generateRGBABackgroundColor() {
+function generateRgbaBackgroundColor() {
     // var backgroungColor = Math.floor(Math.random()*16777215).toString(16);
     // console.log('#'+backgroungColor);
     // return '#'+backgroungColor;
