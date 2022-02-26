@@ -10,7 +10,10 @@ const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
 const copyBtn = document.querySelector( '.input-copy' ); 
 const btn = document.querySelector( '.change-btn' );
+
 var haxColorCode;
+
+let div = null;
 
 btn.addEventListener( 'click', function( e ) {
     e.preventDefault();
@@ -21,7 +24,13 @@ btn.addEventListener( 'click', function( e ) {
 
 copyBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
+
     navigator.clipboard.writeText( input.value );
+
+    if ( div !== null ) {
+        div.remove();
+        div = null;
+    }
     generateToastMessage( `${haxColorCode} Copied!` );
 } );
 
@@ -45,11 +54,14 @@ function generateHaxBackgroundColor() {
  * @return void
  */
 function generateToastMessage( message ) {
-    const div = document.createElement( 'div' );
+    div = document.createElement( 'div' );
 
     div.innerText = message;
     div.className = 'toast-message toast-message-slide-in';
 
+    /**
+     * Remove toast message by clicking on toast message.
+     */
     div.addEventListener( 'click', function(e) {
         e.preventDefault();
         div.classList.remove( 'toast-message-slide-in' );
@@ -58,20 +70,23 @@ function generateToastMessage( message ) {
         div.addEventListener( 'animationend', function(e) {
             e.preventDefault();
             div.remove();
+            div = null;
         } );
     } );
 
-    if ( div ) {
-        setTimeout( function(e) {
-            div.classList.remove( 'toast-message-slide-in' );
-            div.classList.add( 'toast-message-slide-out' );
-    
-            div.addEventListener( 'animationend', function(e) {
-                e.preventDefault();
-                div.remove();
-            } );
-        }, 3000 );
-    }
+    /**
+     * To remove toast message after certain period of time.
+     */
+    // setTimeout( function(e) {
+    //     div.classList.remove( 'toast-message-slide-in' );
+    //     div.classList.add( 'toast-message-slide-out' );
+
+    //     div.addEventListener( 'animationend', function(e) {
+    //         e.preventDefault();
+    //         div.remove();
+    //         // div = null;
+    //     } );
+    // }, 3000 );
     
     document.body.appendChild( div );
 }
