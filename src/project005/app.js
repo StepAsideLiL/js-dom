@@ -24,7 +24,7 @@ btn.addEventListener( 'click', function( e ) {
     input.value = hexColorCode;
 } );
 
-// Event Listener: button click to copy hex code.
+// Event Listener: button click to copy hex code in clipboard.
 copyBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
 
@@ -34,7 +34,7 @@ copyBtn.addEventListener( 'click', function( e ) {
         div.remove();
         div = null;
     }
-    console.log(input.value);
+    // console.log(input.value);
     generateToastMessage( `${input.value} Copied!` );
 } );
 
@@ -56,7 +56,7 @@ input.addEventListener( 'input', function( e ) {
  */
 function generatehexBackgroundColor() {
     var randomHexColor = Math.floor( Math.random() * 16777215 ).toString(16);
-    console.log( `#${randomHexColor}` );
+    // console.log( `#${randomHexColor}` );
     return `#${randomHexColor}`;
 }
 
