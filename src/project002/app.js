@@ -1,7 +1,7 @@
 /**
  * Project requirement
  * - Ramdomly change background color by clicking a button.
- * - Show the hax code in input field.
+ * - Show the hex code in input field.
  */
 
 const body = document.getElementsByTagName( 'body' )[0];
@@ -10,12 +10,12 @@ const btn = document.querySelector( '.change-btn' );
 
 btn.addEventListener( 'click', function(e) {
     e.preventDefault();
-    var haxColorCode = generateHaxBackgroundColor();
-    body.style.backgroundColor = haxColorCode;
-    input.value = haxColorCode;
+    var hexColorCode = generatehexBackgroundColor();
+    body.style.backgroundColor = hexColorCode;
+    input.value = hexColorCode;
 } );
 
-function generateHaxBackgroundColor() {
+function generatehexBackgroundColor() {
     var randomHexColor = Math.floor( Math.random() * 16777215 ).toString(16);
     console.log( `#${randomHexColor}` );
     return `#${randomHexColor}`;
