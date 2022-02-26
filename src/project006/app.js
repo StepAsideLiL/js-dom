@@ -59,7 +59,6 @@ input.addEventListener( 'input', function( e ) {
 
 /**
  * Generate random color hex code.
- * (16777215)10 = (ffffff)16
  * 
  * @return {string} color hex code
  */
