@@ -7,12 +7,11 @@
 
 ## Algorithm
 1. Select elements (*body*, *input field* and *button*).
-2. add click event listener to *button*.
+2. add click event to *button*.
    - call generateHexBackgroundColor function.
    - set color hex code into *body*
    - set hex code into *input field*.
 
 <br />
-<br />
 
-[Preview](https://raw.githack.com/StepAsideLiL/js-dom/main/src/project002/index.html)
+## The project [Preview](https://raw.githack.com/StepAsideLiL/js-dom/main/src/project002/index.html).
