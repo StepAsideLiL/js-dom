@@ -10,10 +10,11 @@ const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
 const copyBtn = document.querySelector( '.input-copy' ); 
 const changeBtn = document.querySelector( '.change-btn' );
-var hexColorCode;
+
+let hexColorCode;
 
 // Add click event to the changeBtn element.
-btn.addEventListener( 'click', function( e ) {
+changeBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
     hexColorCode = generatehexBackgroundColor();
     body.style.backgroundColor = hexColorCode;
