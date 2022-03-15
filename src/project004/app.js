@@ -6,22 +6,25 @@
  * - Show a toast message when copied the color.
  */
 
+// Select elements.
 const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
 const copyBtn = document.querySelector( '.input-copy' ); 
-const btn = document.querySelector( '.change-btn' );
+const changeBtn = document.querySelector( '.change-btn' );
 
-var hexColorCode;
+let hexColorCode;
 
 let div = null;
 
-btn.addEventListener( 'click', function( e ) {
+// Add click event to the change button element.
+changeBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
     hexColorCode = generatehexBackgroundColor();
     body.style.backgroundColor = hexColorCode;
     input.value = hexColorCode;
 } );
 
+// Add click event to the copy button element.
 copyBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
 
@@ -38,7 +41,7 @@ copyBtn.addEventListener( 'click', function( e ) {
  * Generate random color hex code.
  * (16777215)10 = (ffffff)16
  * 
- * @return string color hex code
+ * @return {string} color hex code
  */
 function generatehexBackgroundColor() {
     var randomHexColor = Math.floor( Math.random() * 16777215 ).toString(16);
@@ -49,7 +52,7 @@ function generatehexBackgroundColor() {
 /**
  * Generate toast message.
  * 
- * @param 
+ * @param {string} message toast message
  * 
  * @return void
  */
@@ -73,20 +76,6 @@ function generateToastMessage( message ) {
             div = null;
         } );
     } );
-
-    /**
-     * To remove toast message after certain period of time.
-     */
-    // setTimeout( function(e) {
-    //     div.classList.remove( 'toast-message-slide-in' );
-    //     div.classList.add( 'toast-message-slide-out' );
-
-    //     div.addEventListener( 'animationend', function(e) {
-    //         e.preventDefault();
-    //         div.remove();
-    //         // div = null;
-    //     } );
-    // }, 3000 );
     
     document.body.appendChild( div );
 }
