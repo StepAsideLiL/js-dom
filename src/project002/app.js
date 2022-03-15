@@ -7,10 +7,10 @@
 // Select elements
 const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
-const btn = document.querySelector( '.change-btn' );
+const changeBtn = document.querySelector( '.change-btn' );
 
 // Add click event to the button element.
-btn.addEventListener( 'click', function(e) {
+changeBtn.addEventListener( 'click', function(e) {
     e.preventDefault();
     var hexColorCode = generateHexBackgroundColor();
     body.style.backgroundColor = hexColorCode;
