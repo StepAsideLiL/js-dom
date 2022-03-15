@@ -35,4 +35,4 @@
 
 <br />
 
-### Note: There is a problem with the hex code. Sometimes it generates less digit.
+### Note: Note: There is a problem    `generateHexBackgroundColor`. Sometimes it generates less digit.
