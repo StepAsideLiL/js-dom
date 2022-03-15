@@ -32,3 +32,7 @@
 <br />
 
 ## The project [Preview](https://raw.githack.com/StepAsideLiL/js-dom/main/src/project004/index.html).
+
+<br />
+
+### Note: There is a problem with the hex code. Sometimes it generates 5 digits.
