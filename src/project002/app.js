@@ -9,7 +9,7 @@ const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
 const btn = document.querySelector( '.change-btn' );
 
-// Add click event listener to button
+// Add click event to the button element.
 btn.addEventListener( 'click', function(e) {
     e.preventDefault();
     var hexColorCode = generateHexBackgroundColor();
