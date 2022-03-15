@@ -35,4 +35,4 @@
 
 <br />
 
-### Note: There is a problem with the hex code. Sometimes it generates 5 digits.
+### Note: There is a problem with the hex code. Sometimes it generates less digit.
