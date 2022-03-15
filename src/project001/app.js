@@ -10,10 +10,10 @@
 
 // Select the elements.
 const body = document.getElementsByTagName( 'body' )[0];
-const btn = document.querySelector( '.change-btn' );
+const changeBtn = document.querySelector( '.change-btn' );
 
 // add click event to the button element.
-btn.addEventListener( 'click', function( e ) {
+changeBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
     body.style.backgroundColor = generateRgbaBackgroundColor();
 } );
