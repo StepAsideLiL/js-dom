@@ -7,17 +7,18 @@
  * - Type color hex code in the input field to change background color.
  */
 
+// Select elements.
 const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
 const copyBtn = document.querySelector( '.input-copy' ); 
-const btn = document.querySelector( '.change-btn' );
+const changeBtn = document.querySelector( '.change-btn' );
 
 let hexColorCode;
 
 let div = null;
 
 // Event Listener: button click to change background color.
-btn.addEventListener( 'click', function( e ) {
+changeBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
     hexColorCode = generatehexBackgroundColor();
     body.style.backgroundColor = hexColorCode;
@@ -40,8 +41,8 @@ copyBtn.addEventListener( 'click', function( e ) {
 
 // Event Listener: type hex code in input field to change background color
 input.addEventListener( 'input', function( e ) {
-    let color = input.value;
     e.preventDefault();
+    let color = input.value;
     var isHex = isValidHex( color );
     if ( isHex ) {
         body.style.backgroundColor = color
@@ -63,7 +64,7 @@ function generatehexBackgroundColor() {
 /**
  * Generate toast message.
  * 
- * @param message {string} toast message
+ * @param {string} message toast message
  * @return void
  */
 function generateToastMessage( message ) {
@@ -88,20 +89,6 @@ function generateToastMessage( message ) {
             div = null;
         } );
     } );
-
-    /**
-     * To remove toast message after certain period of time.
-     */
-    // setTimeout( function(e) {
-    //     div.classList.remove( 'toast-message-slide-in' );
-    //     div.classList.add( 'toast-message-slide-out' );
-
-    //     div.addEventListener( 'animationend', function(e) {
-    //         e.preventDefault();
-    //         div.remove();
-    //         // div = null;
-    //     } );
-    // }, 3000 );
     
     document.body.appendChild( div );
 }
@@ -109,7 +96,7 @@ function generateToastMessage( message ) {
 /**
  * Verify the validity of hex color code.
  * 
- * @param color {string} hex color code
+ * @param {string} color hex color code
  * @return {boolean}
  */
 function isValidHex( color ) {
