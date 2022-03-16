@@ -8,10 +8,11 @@
  * - write hex code without hash in input field.
  */
 
+// Select elements.
 const body = document.getElementsByTagName( 'body' )[0];
 const input = document.querySelector( '.input-box' );
 const copyBtn = document.querySelector( '.input-copy' ); 
-const btn = document.querySelector( '.change-btn' );
+const changeBtn = document.querySelector( '.change-btn' );
 
 let hexValues = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F' ];
 let hexColorCode;
@@ -19,7 +20,7 @@ let hexColorCode;
 let div = null;
 
 // Event Listener: button click to change background color.
-btn.addEventListener( 'click', function( e ) {
+changeBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
     hexColorCode = generateHexBackgroundColor();
     body.style.backgroundColor = `#${hexColorCode}`;
@@ -100,20 +101,6 @@ function generateToastMessage( message ) {
             div = null;
         } );
     } );
-
-    /**
-     * To remove toast message after certain period of time.
-     */
-    // setTimeout( function(e) {
-    //     div.classList.remove( 'toast-message-slide-in' );
-    //     div.classList.add( 'toast-message-slide-out' );
-
-    //     div.addEventListener( 'animationend', function(e) {
-    //         e.preventDefault();
-    //         div.remove();
-    //         // div = null;
-    //     } );
-    // }, 3000 );
     
     document.body.appendChild( div );
 }
