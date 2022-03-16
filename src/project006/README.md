@@ -46,4 +46,4 @@
 
 <br />
 
-### Note: `generateHexBackgroundColor()` function now use new method to generate hex color code. It is more accute way to generate 6 digit hex color.
+### Note: `generateHexBackgroundColor()` function in this project use new method to generate hex color code. It is more accute way to generate 6 digit hex color.
