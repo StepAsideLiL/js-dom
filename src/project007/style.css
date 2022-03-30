@@ -24,7 +24,17 @@ body {
 .msg {
     color: #000;
     text-shadow: -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff;
-    padding: 10px 0;
+}
+
+.msg,
+.hex-input-group,
+.rgb-input-group {
+    padding-bottom: 30px;
+}
+
+.input-label {
+    color: #fff;
+    font-size: 20px;
 }
 
 .input-group {
@@ -37,7 +47,7 @@ body {
 
 .input-icon {
     position: absolute;
-    padding: 10px;
+    padding: 9px;
     left: 0.5px;
     font-size: 12px;
     font-weight: 700;
@@ -47,14 +57,20 @@ body {
     border-bottom-left-radius: 10px;
 }
 
+.input-icon,
+.input-box,
+.input-copy {
+    margin-top: 5px;
+}
+
 .input-box {
+    width: 120px;
     color: #000000;
     background-color: #ffffff;
     text-align: center;
     font-size: 12px;
     font-weight: 700;
-    padding: 10px 20px;
-    margin: 20px 0;
+    padding: 10px 0;
     border-radius: 10px;
     border: none;
 }

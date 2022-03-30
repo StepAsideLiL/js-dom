@@ -3,49 +3,61 @@
  * - Ramdomly change background color by clicking a button.
  * - Show the hex code in input field.
  * - Also a button to copy the hex code in clipboard. 
- * - Show a toast message when copied the color.
+ * - Show a toast message when the hex color is copied.
  * - Type color hex code in the input field to change background color.
  * - write hex code without hash in input field.
+ * - Show the rbg color code in another input field without editing functionality.
+ * - Add a button to copy the rgb color code in clipboard.
+ * - Show a toast message when the rgb color is copied.
  */
 
 // Select elements.
 const body = document.getElementsByTagName( 'body' )[0];
-const input = document.querySelector( '.input-box' );
-const copyBtn = document.querySelector( '.input-copy' ); 
+const hexInput = document.querySelector( '.hex-input-box' );
+const hexCopyBtn = document.querySelector( '.hex-input-copy' );
+const rgbInput = document.querySelector( '.rgb-input-box' );
+const rgbCopyBtn = document.querySelector( '.rgb-input-copy' );
 const changeBtn = document.querySelector( '.change-btn' );
 
-let hexValues = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F' ];
-let hexColorCode;
+let rgbColor;
+let hexColor;
 
 let div = null;
 
 // Event Listener: button click to change background color.
 changeBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
-    hexColorCode = generateHexBackgroundColor();
-    body.style.backgroundColor = `#${hexColorCode}`;
-    input.value = hexColorCode;
+    
+    let rgbColorCode = generateRgbColorCode();
+
+    rgbColor = generateRgbColor( rgbColorCode );
+    hexColor = generateHexColor( rgbColorCode );
+
+    body.style.backgroundColor = `#${hexColor}`;
+
+    hexInput.value = hexColor;
+    rgbInput.value = rgbColor;
 } );
 
 // Event Listener: button click to copy hex code in clipboard.
-copyBtn.addEventListener( 'click', function( e ) {
+hexCopyBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
 
-    let color = input.value[0] === '#' ? input.value.slice(1).toUpperCase() : input.value.toUpperCase();
+    let color = hexInput.value[0] === '#' ? hexInput.value.slice(1).toUpperCase() : hexInput.value.toUpperCase();
     navigator.clipboard.writeText( `#${color}` );
 
     if ( div !== null ) {
         div.remove();
         div = null;
     }
-    // console.log(input.value);
+    // console.log(hexInput.value);
     generateToastMessage( `#${color} Copied!` );
 } );
 
 // Event Listener: type hex code in input field to change background color
-input.addEventListener( 'input', function( e ) {
+hexInput.addEventListener( 'input', function( e ) {
     e.preventDefault();
-    let color = input.value;
+    let color = hexInput.value;
     // console.log(color);
     let isHex = isValidHex( color );
     let hasHash = color[0] === '#' ? true : false;
@@ -58,19 +70,69 @@ input.addEventListener( 'input', function( e ) {
     }
 } );
 
-/**
- * Generate random color hex code.
- * 
- * @return {string} color hex code
- */
-function generateHexBackgroundColor() {
-    let hex = '';
-    for ( let i = 0; i < 6; i++ ) {
-        const index = Math.floor( Math.random() * hexValues.length );
-        hex += hexValues[ index ];
+// Event Listener: button click to copy RGB color code in clipboard.
+rgbCopyBtn.addEventListener( 'click', function( e ) {
+    e.preventDefault();
+
+    let color = rgbColor;
+
+    navigator.clipboard.writeText( color );
+
+    if ( div !== null ) {
+        div.remove();
+        div = null;
     }
-    // console.log( hex );
-    return hex;
+    // console.log(hexInput.value);
+    generateToastMessage( `${color} Copied!` );
+} );
+
+/**
+ * Generates RGB color code.
+ * 
+ * @returns {object} Object of color code red, green and blue.
+ */
+function generateRgbColorCode() {
+    let red = Math.floor( Math.random() * 256 );
+    let green = Math.floor( Math.random() * 256 );
+    let blue = Math.floor( Math.random() * 256 );
+    return {
+        red: red,
+        green: green,
+        blue: blue
+    };
+}
+
+/**
+ * Generate RGB color.
+ * 
+ * @param {object} rgb Array of color code red, green and blue.
+ * @returns {string} RGB color.
+ */
+function generateRgbColor( { red, green, blue } ) {
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+/**
+ * Generate hex color.
+ * 
+ * @param {object} rgb Array of color code red, green and blue.
+ * @returns {string} Hex color.
+ */
+function generateHexColor( { red, green, blue } ) {
+    let r = generateValidHexCode( red );
+    let g = generateValidHexCode( green );
+    let b = generateValidHexCode( blue );
+    return `${r}${g}${b}`.toUpperCase();
+}
+
+/**
+ * Generate valid hex color.
+ * 
+ * @param {string} code Single color code of RGB color code.
+ * @returns {string} Valid hex code of single color of RGB color code.
+ */
+function generateValidHexCode( code ) {
+    return code.toString( 16 ).length !== 2 ? `0${code.toString( 16 )}` : code.toString( 16 );
 }
 
 /**
