@@ -77,7 +77,7 @@ hexInput.addEventListener( 'input', function( e ) {
 rgbCopyBtn.addEventListener( 'click', function( e ) {
     e.preventDefault();
 
-    let color = rgbColor;
+    let color = rgbInput.value;
 
     navigator.clipboard.writeText( color );
 
