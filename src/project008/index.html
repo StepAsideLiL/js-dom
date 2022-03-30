@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Color</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root" class="container">
+        <h1 class="msg">Click The Button To Change Background Color</h1>
+
+        <label class="input-label" for="hex-input-box">Hex Color Code</label>
+        <form class="input-group hex-input-group">
+            <span class="input-icon">#</span>
+            <input type="text" value="000000" class="input-box hex-input-box">
+            <button class="input-copy hex-input-copy">Copy</button>
+        </form>
+
+        <label class="input-label" for="rgb-input-box">RGB Color Code</label>
+        <form class="input-group rgb-input-group">
+            <input type="text" disabled value="rgb(0, 0, 0)" class="input-box rgb-input-box">
+            <button class="input-copy rgb-input-copy">Copy</button>
+        </form>
+
+        <button class="change-btn">CLICK ME</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
