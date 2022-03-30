@@ -1,4 +1,4 @@
-# Project 007
+# Project 008
 
 ## Project requirements
 - Change the background color randomly by clicking a button generating hex color code.
@@ -10,6 +10,7 @@
 - Show the RGB color code in another input field without editing functionality.
 - Add a button to copy the RGB color code into the clipboard.
 - Show a toast message when the rgb color is copied.
+- Convert hex color code to rgb color code and change rgb color when hex color is modified.
 
 ## Algorithm
 1. Select elements (*body*, *input field for hex color*, *copy button for hex color*, *input field for rgb color*, *copy button for rgb color*, and *change button*).
@@ -29,6 +30,7 @@
 5. Add input event to *input field for hex color*.
    - call `isValidHex()` function with input parameter.
    - if `isValidHex() == true` set `color` hex code into *body*.
+   - `convertHexToRgb(color)` to change *input field for rgb color*
 6. Add click event to *copy button for rgb color*.
    - assign valid rgb code to `color`.
    - copy `color` in to clipboard.
@@ -55,10 +57,9 @@
 12. `isValidHex(color)`
     - return `true` if color is valid hex color. Example: `#acacac` or `acacac`.
     - else return `false`.
+13. `convertHexToRgb(hex)`
+    - convert hex code to rgb code.
 
 <br />
 
-## The project [Preview](https://raw.githack.com/StepAsideLiL/js-dom/main/src/project007/index.html).
-
-<br />
-Note: We rewrite the color code generator function and divided into smaller function.
+## The project [Preview](https://raw.githack.com/StepAsideLiL/js-dom/main/src/project008/index.html).
